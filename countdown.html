@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTDOWN</title>
+    <style>
+*{
+    margin: 0;padding: 0;box-sizing: border-box;font-family: 'poppins', sans-serif;
+}
+.container{
+width: 100vw;height: 100vh;background-image: url(images/background.png);background-position: center;
+background-size: cover;padding: 0 8%;
+}
+.logo{
+    width: 120px;padding: 20px 0;cursor: pointer;
+}
+.content{
+    top: 50%;
+    position: absolute;color: #fff;transform: translateY(-50%);
+}
+.content h1{
+    font-size: 64px;font-weight: 600;  
+}
+.content h1 span{
+    color: #ff3753;
+}
+.content  button{
+    background: transparent;color: #fff;outline: none;border: 2px solid #fff;
+    padding: 12px 25px;display: flex;align-items: center;margin-top: 30px;cursor: pointer;
+}
+.content  button img{
+    width: 15px;margin-left: 10px;
+}
+.launch-time{
+    display: flex;
+}
+.launch-time div{
+    flex-basis: 100px;
+}
+.launch-time div p{
+    font-size: 60px;margin-bottom: -5px;
+}
+.rocket{
+    width: 250px;position: absolute;right: 10%;bottom: 0;
+    animation: rocket 4s linear infinite;
+   
+}
+@keyframes rocket {
+        0%{
+            bottom:0;opacity: 0;
+        }
+        100%{
+            bottom: 105%;opacity: 1;
+        }
+    }
+    </style>
+</head>
+<body>
+    
+
+
+<div class="container">
+   <img src="images/logo.png" class="logo">
+   <div class="content">
+      <p>Website Is Under Maintaining</p>
+      <h1>We're <span>Launching</span> Soon</h1>
+      <div class="launch-time">
+           <div>
+                <p class="days">00</p>
+                <span>Days</span>
+           </div>
+           <div>
+                 <p class="hours">00</p>
+                 <span>Hours</span>
+            </div>
+            <div>
+                  <p class="mint">00</p>
+                  <span>Minutes</span>
+            </div>
+             <div>
+                 <p class="sec">00</p>
+                 <span>Seconds</span>
+            </div>
+      </div>
+      <button type="button">Learn More <img src="images/triangle.png"></button>
+   </div>
+   <img src="images/rocket.png" class="rocket">
+</div>
+
+
+
+<script>
+
+
+
+
+var nextDate = new Date("dec 3, 2023 10:00:00").getTime();
+
+var x = setInterval(function(){ 
+
+var currentTime = new Date().getTime();
+
+
+var diff = nextDate - currentTime;
+console.log(diff);
+
+var day = Math.floor(diff/ (1000*60*60*24));
+console.log(day + "mi hon day");
+
+var hour = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+console.log(hour + "mi hon day");
+
+var minute = Math.floor((diff % (1000*60*60)) / (1000*60));
+console.log(minute + "mi hon day");
+
+var sec = Math.floor((diff % (1000*60)) / 1000);
+console.log(sec + "mi hon day");
+
+document.querySelector(".days").innerHTML = day;
+document.querySelector(".hours").innerHTML = hour;
+document.querySelector(".mint").innerHTML = minute;
+document.querySelector(".sec").innerHTML = sec;
+
+
+})
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
